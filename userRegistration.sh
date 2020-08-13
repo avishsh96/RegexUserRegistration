@@ -87,12 +87,12 @@ function password(){
 while(( $flagPwd != 0 ))
 do
 read -p "Enter Password " pwd
-if [[ ${#pwd} -ge 8 ]]
+if [[ ${#pwd} -ge 8 && "$pwd" == *[[:upper:]]* ]]
 then
         echo "$pwd"
         flagPwd=0
 else
-        echo "Password is incorrect should at least minimum 8 characters"
+        echo "Password is incorrect minimum 8 characters 1 upper character"
 fi
 done
 }
