@@ -80,9 +80,28 @@ fi
 done
 }
 
+#Password
+
+flagPwd=1
+function password(){
+while(( $flagPwd != 0 ))
+do
+read -p "Enter Password " pwd
+if [[ ${#pwd} -ge 8 ]]
+then
+        echo "$pwd"
+        flagPwd=0
+else
+        echo "Password is incorrect should at least minimum 8 characters"
+fi
+done
+}
+
+
 firstName
 lastName
 email
 mobile
+password
 echo "User registration Done"
 
