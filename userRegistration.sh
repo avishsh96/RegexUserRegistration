@@ -5,6 +5,9 @@ echo "Welcome to User Registration with regex"
 firstNamePattern='(^[[:upper:]][[:alpha:]]{2,14}$)'
 lastNamePattern='(^[[:upper:]][[:alpha:]]{2,14}$)'
 emailPattern="^([A-Za-z]+(\-|\.|\_|\+)?[A-Za-z0-9]*\+?((\.|\-|\_)?[A-Za-z]+[A-Za-z0-9]*)*)@(([A-Za-z0-9]+)+((\.|\-|\_)?([A-Za-z0-9]+)+)*)+\.([A-Za-z]{2,})+$"
+mobilePattern="^[[:digit:]]{2}[[:space:]][[:digit:]]{10}$"
+
+
 
 #FIRSTNAME
 
@@ -60,9 +63,26 @@ fi
 done
 }
 
+#Mobile Number
+
+flagMobile=1
+function mobile(){
+while(( $flagMobile != 0 ))
+do
+read -p "Enter Mobile Number " mobile
+if [[ $mobile =~ $mobilePattern ]]
+then
+        echo "$mobile"
+        flagMobile=0
+else
+        echo "Mobile Number is incorrect should have country code followed by space then 10 digit mobile number"
+fi
+done
+}
 
 firstName
 lastName
 email
+mobile
 echo "User registration Done"
 
