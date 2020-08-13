@@ -87,7 +87,7 @@ function password(){
 while(( $flagPwd != 0 ))
 do
 read -p "Enter Password " pwd
-if [[ ${#pwd} -ge 8 && "$pwd" == *[[:upper:]]* ]]
+if [[ ${#pwd} -ge 8 && "$pwd" == *[[:upper:]]* && "$pwd" == *[0-9]* ]]
 then
         echo "$pwd"
         flagPwd=0
