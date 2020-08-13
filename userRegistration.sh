@@ -3,7 +3,7 @@ echo "Welcome to User Registration with regex"
 #PATTERNS
 
 firstNamePattern='(^[[:upper:]][[:alpha:]]{2,14}$)'
-
+lastNamePattern='(^[[:upper:]][[:alpha:]]{2,14}$)'
 
 
 #FIRSTNAME
@@ -24,6 +24,26 @@ fi
 done
 }
 
-firstName
 
+
+#LASTNAME
+
+flagLast=1
+function lastName(){
+while(( $flagLast != 0 ))
+do
+read -p "Enter LastName " last
+if [[ $last =~ $lastNamePattern ]]
+then
+	echo "$last"
+	flagLast=0
+else
+	echo "Last name should start with Capital letter and should have minimum 3 characters"
+fi
+done
+}
+
+
+firstName
+lastName
 echo "User registration Done"
