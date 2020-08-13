@@ -4,7 +4,7 @@ echo "Welcome to User Registration with regex"
 
 firstNamePattern='(^[[:upper:]][[:alpha:]]{2,14}$)'
 lastNamePattern='(^[[:upper:]][[:alpha:]]{2,14}$)'
-
+emailPattern="^([A-Za-z]+(\-|\.|\_|\+)?[A-Za-z0-9]*\+?((\.|\-|\_)?[A-Za-z]+[A-Za-z0-9]*)*)@(([A-Za-z0-9]+)+((\.|\-|\_)?([A-Za-z0-9]+)+)*)+\.([A-Za-z]{2,})+$"
 
 #FIRSTNAME
 
@@ -43,7 +43,26 @@ fi
 done
 }
 
+#EMAIL
+
+flagEmail=1
+function email(){
+while(( $flagEmail != 0 ))
+do
+read -p "Enter Email " email
+if [[ $email =~ $emailPattern ]]
+then
+	echo "$email"
+	flagEmail=0
+else
+	echo "Email is incorrect should follow the pattern abc.xyz@bl.co.in"
+fi
+done
+}
+
 
 firstName
 lastName
+email
 echo "User registration Done"
+
